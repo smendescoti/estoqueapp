@@ -1,0 +1,64 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Consulta de estoques</mat-card-title>
+        <mat-card-subtitle>Listagem de estoques cadastrados.</mat-card-subtitle>
+        <div style="flex-grow: 1; text-align: right;">
+            <button mat-flat-button color="primary" (click)="onDownloadClick('PDF')">
+                <mat-icon>picture_as_pdf</mat-icon>
+                Baixar em PDF
+            </button>
+            &nbsp;
+            <button mat-flat-button color="primary" (click)="onDownloadClick('EXCEL')">
+                <mat-icon>table_chart</mat-icon>
+                Baixar em Excel
+            </button>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+
+        <!-- exibir a mensagem de resposta -->
+        <app-messages [mensagem]="resultado"></app-messages>
+
+        <!-- tabela de estoques -->
+        <mat-table [dataSource]="dataSource" class="table-estoque">
+
+            <!-- coluna 'nome' -->
+            <ng-container matColumnDef="nome">
+                <mat-header-cell *matHeaderCellDef>Nome do estoque</mat-header-cell>
+                <mat-cell *matCellDef="let item">{{item.nome}}</mat-cell>
+            </ng-container>
+
+            <!-- coluna 'descricao' -->
+            <ng-container matColumnDef="descricao">
+                <mat-header-cell *matHeaderCellDef>Descrição do estoque</mat-header-cell>
+                <mat-cell *matCellDef="let item">{{item.descricao}}</mat-cell>
+            </ng-container>
+
+            <!-- coluna 'datacriacao' -->
+            <ng-container matColumnDef="datacriacao">
+                <mat-header-cell *matHeaderCellDef>Criado em</mat-header-cell>
+                <mat-cell *matCellDef="let item">{{item.datacriacao | date : 'dd/MM/yyyy HH:mm'}}</mat-cell>
+            </ng-container>
+
+            <!-- coluna 'datacriacao' -->
+            <ng-container matColumnDef="operacoes">
+                <mat-header-cell *matHeaderCellDef>Operações</mat-header-cell>
+                <mat-cell *matCellDef="let item">
+                    <button mat-icon-button color="primary" (click)="onEdit(item.id)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    &nbsp;
+                    <button mat-icon-button color="warn" (click)="onDelete(item.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <!-- configurando o data table -->
+            <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnNames"></mat-row>
+
+        </mat-table>
+
+    </mat-card-content>
+</mat-card>

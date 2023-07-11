@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-header>
+        <img src="https://www.cotiinformatica.com.br/imagens/logo-coti-informatica.png" />
+    </mat-card-header>
+    <mat-card-title>
+        Acesso ao Sistema
+    </mat-card-title>
+    <mat-card-subtitle>
+        Informe suas credenciais de acesso:
+    </mat-card-subtitle>
+    <mat-card-content>
+
+        <!-- exibir o componente de mensagem -->
+        <app-messages [mensagem]="resultado"></app-messages>
+
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field>
+                    <mat-label>Email de acesso:</mat-label>
+                    <input matInput type="email" placeholder="Digite aqui" formControlName="email" />
+                    <mat-error *ngIf="form.email.touched && form.email.invalid">
+                        <span *ngIf="form.email.errors.required">
+                            Por favor, informe seu email de acesso.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Senha de acesso:</mat-label>
+                    <input matInput type="password" placeholder="Digite aqui" formControlName="senha" />
+                    <mat-error *ngIf="form.senha.touched && form.senha.invalid">
+                        <span *ngIf="form.senha.errors.required">
+                            Por favor, informe sua senha de acesso.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <button type="submit" mat-raised-button color="primary" [disabled]="!formLogin.valid">
+                    Acessar Sistema
+                </button>
+            </p>
+        </form>
+
+    </mat-card-content>
+</mat-card>

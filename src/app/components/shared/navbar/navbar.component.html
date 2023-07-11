@@ -1,0 +1,23 @@
+<!-- Menu superior -->
+<mat-toolbar color="primary" class="app-header">
+    <div>
+        <a href="#" style="color: #fff; text-decoration: none;">
+            Controle de Estoques
+        </a>
+    </div>
+    <mat-menu #menu="matMenu">
+
+        <button *ngIf="!isAuthenticated" mat-menu-item [routerLink]="['/home/login']">Acessar Sistema</button>
+        <button *ngIf="!isAuthenticated" mat-menu-item [routerLink]="['/home/register']">Criar Conta</button>
+        <button *ngIf="!isAuthenticated" mat-menu-item [routerLink]="['/home/password-recover']">Recuperar Senha</button>
+        
+        <button *ngIf="isAuthenticated" mat-menu-item [routerLink]="['/admin/dashboard']">Dashboard Principal</button>
+        <button *ngIf="isAuthenticated" mat-menu-item [routerLink]="['/admin/estoque-cadastro']">Cadastro de Estoques</button>
+        <button *ngIf="isAuthenticated" mat-menu-item [routerLink]="['/admin/estoque-consulta']">Consulta de Estoques</button>
+        <button *ngIf="isAuthenticated" mat-menu-item (click)="sair()">Sair do Sistema</button>
+    
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>

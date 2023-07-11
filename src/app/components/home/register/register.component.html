@@ -1,0 +1,69 @@
+<mat-card>
+    <mat-card-title>
+        Criar conta de usuário
+    </mat-card-title>
+    <mat-card-subtitle>
+        Preenche os dados para criar sua conta.
+    </mat-card-subtitle>
+    <mat-card-content>
+
+        <!-- exibindo o resultado através do componente de mensagens -->
+        <app-messages [mensagem]="resultado"></app-messages>
+
+        <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field>
+                    <mat-label>Nome do usuário:</mat-label>
+                    <input type="text" matInput placeholder="Digite seu nome aqui" 
+                        formControlName="nome" />
+                    <mat-error *ngIf="form.nome.touched && form.nome.invalid">
+                        <span *ngIf="form.nome.errors.required">
+                            Por favor, informe seu nome.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </p>           
+            <p>
+                <mat-form-field>
+                    <mat-label>Email:</mat-label>
+                    <input type="email" matInput placeholder="Digite seu endereço de email" 
+                        formControlName="email" />
+                    <mat-error *ngIf="form.email.touched && form.email.invalid">
+                        <span *ngIf="form.email.errors.required">
+                            Por favor, informe seu email.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Senha de acesso:</mat-label>
+                    <input type="password" matInput placeholder="Digite sua senha aqui" 
+                        formControlName="senha" />
+                    <mat-error *ngIf="form.senha.touched && form.senha.invalid">
+                        <span *ngIf="form.senha.errors.required">
+                            Por favor, informe sua senha de acesso.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Confirme sua senha:</mat-label>
+                    <input type="password" matInput placeholder="Confirme sua senha aqui"
+                        formControlName="senha_confirmacao" />
+                    <mat-error *ngIf="form.senha_confirmacao.touched && form.senha_confirmacao.invalid">
+                        <span *ngIf="form.senha_confirmacao.errors.required">
+                            Por favor, confirme sua senha de acesso.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <button type="submit" mat-raised-button color="primary" [disabled]="!formRegister.valid">
+                    Realizar Cadastro
+                </button>
+            </p>
+        </form>
+    </mat-card-content>
+</mat-card>

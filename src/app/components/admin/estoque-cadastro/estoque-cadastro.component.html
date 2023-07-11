@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Cadastro de estoques</mat-card-title>
+        <mat-card-subtitle>Preencha o formulário para incluir um estoque</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+        <app-messages [mensagem]="resultado"></app-messages>
+
+        <form [formGroup]="formEstoque" (ngSubmit)="onSubmit()" class="form-estoque">
+            <div class="form-row">
+                <mat-form-field class="full-width">
+                    <mat-label>Nome do estoque:</mat-label>
+                    <input matInput placeholder="Digite o nome aqui" formControlName="nome" />
+                    <mat-error *ngIf="form.nome.touched && form.nome.invalid">
+                        <span *ngIf="form.nome.errors.required">
+                            Por favor, informe o nome do estoque.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <mat-form-field class="full-width">
+                    <mat-label>Descrição do estoque:</mat-label>
+                    <textarea matInput placeholder="Digite o nome aqui" formControlName="descricao"></textarea>
+                    <mat-error *ngIf="form.descricao.touched && form.descricao.invalid">
+                        <span *ngIf="form.descricao.errors.required">
+                            Por favor, informe a descrição do estoque.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-row">
+                <button mat-raised-button color="primary" [disabled]="!formEstoque.valid">
+                    Cadastrar Estoque
+                </button>
+                &nbsp;
+                <button mat-raised-button color="accent" routerLink="/admin/estoque-consulta">
+                    Ir para a consulta
+                </button>
+            </div>
+        </form>
+
+    </mat-card-content>
+</mat-card>

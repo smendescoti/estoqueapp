@@ -1,27 +1,45 @@
-# Estoqueapp
+# Controle de Estoque - Projeto Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+Este é um projeto de controle de estoque desenvolvido com o framework Angular.
 
-## Development server
+## Bibliotecas Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O projeto utiliza as seguintes bibliotecas:
 
-## Code scaffolding
+- [Angular Material](https://material.angular.io/): Fornece um conjunto de componentes e estilos para criar interfaces de usuário modernas e responsivas.
+- [Axios](https://axios-http.com/): Uma biblioteca HTTP baseada em promessas para fazer requisições HTTP.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Certifique-se de instalar essas bibliotecas antes de executar o projeto.
 
-## Build
+## Acesso ao Projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+O projeto está publicado em um servidor e pode ser acessado no seguinte endereço: [Controle de Estoque](http://appestoquesergio-001-site1.dtempurl.com/home/login).
 
-## Running unit tests
+## Instruções de Instalação
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Siga estas etapas para executar o projeto localmente:
 
-## Running end-to-end tests
+1. Certifique-se de ter o Node.js instalado em sua máquina. Você pode baixá-lo em [https://nodejs.org](https://nodejs.org).
+2. Clone este repositório para o seu ambiente local.
+3. Navegue até o diretório raiz do projeto.
+4. Execute o seguinte comando para instalar as dependências do projeto:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   npm install
+   ```
 
-## Further help
+5. Após a conclusão da instalação, execute o seguinte comando para iniciar o servidor de desenvolvimento:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```bash
+   ng serve
+   ```
+
+6. Abra o navegador e acesse `http://localhost:4200` para visualizar o projeto em execução.
+
+Certifique-se de ter um servidor backend em execução para fornecer os dados necessários ao projeto.
+
+## Recursos Adicionais
+
+- Documentação oficial do Angular: [https://angular.io/docs](https://angular.io/docs)
+- Documentação do Angular Material: [https://material.angular.io/guide/getting-started](https://material.angular.io/guide/getting-started)
+- Documentação do Axios: [https://axios-http.com/docs/intro](https://axios-http.com/docs/intro)
